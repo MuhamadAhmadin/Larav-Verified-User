@@ -176,6 +176,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         \SocialiteProviders\Manager\ServiceProvider::class,
+
+        /*
+        *Credit System Package
+        */
+        // Iamjaime\Credits\UserCreditServiceProvider::class,
     ],
 
     /*

@@ -11,14 +11,14 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-10 offset-lg-1">
+            <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             {!! trans('usersmanagement.create-new-user') !!}
                             <div class="pull-right">
-                                <a href="{{ route('users') }}" class="btn btn-light btn-sm float-right" data-toggle="tooltip" data-placement="left" title="{{ trans('usersmanagement.tooltips.back-users') }}">
-                                    <i class="fa fa-fw fa-reply-all" aria-hidden="true"></i>
+                                <a href="{{ route('users') }}" class="btn btn-danger btn-sm float-right" data-toggle="tooltip" data-placement="left" title="{{ trans('usersmanagement.tooltips.back-users') }}">
+                                    <i class="bi bi-reply-all" aria-hidden="true"></i>
                                     {!! trans('usersmanagement.buttons.back-to-users') !!}
                                 </a>
                             </div>
@@ -176,7 +176,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 @section('footer_scripts')

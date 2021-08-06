@@ -13,10 +13,10 @@
             border: 0;
         }
         .users-table tr td:first-child {
-            padding-left: 15px;
+            padding-left: 20px;
         }
         .users-table tr td:last-child {
-            padding-right: 15px;
+            padding-right: 1px;
         }
         .users-table.table-responsive,
         .users-table.table-responsive table {
@@ -26,9 +26,9 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="card-header">
 
@@ -101,29 +101,33 @@
                                                         @php $badgeClass = 'warning' @endphp
                                                     @elseif ($user_role->name == 'Unverified')
                                                         @php $badgeClass = 'danger' @endphp
+                                                    @elseif ($user_role->name == 'Verified')
+                                                        @php $badgeClass = 'success' @endphp
                                                     @else
                                                         @php $badgeClass = 'default' @endphp
                                                     @endif
-                                                    <span class="badge badge-{{$badgeClass}}">{{ $user_role->name }}</span>
+                                                    <span class="badge bg-{{$badgeClass}}">{{ $user_role->name }}</span>
                                                 @endforeach
                                             </td>
                                             <td class="hidden-sm hidden-xs hidden-md">{{$user->created_at}}</td>
                                             <td class="hidden-sm hidden-xs hidden-md">{{$user->updated_at}}</td>
                                             <td>
-                                                {!! Form::open(array('url' => 'users/' . $user->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Delete')) !!}
+                                                {!! Form::open(array('url' => 'users/' . $user->id, 'class' => '', 'data-toggle' => 'tooltip')) !!}
                                                     {!! Form::hidden('_method', 'DELETE') !!}
-                                                    {!! Form::button(trans('usersmanagement.buttons.delete'), array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => 'Delete User', 'data-message' => 'Are you sure you want to delete this user ?')) !!}
+                                                    {!! Form::button(trans('usersmanagement.buttons.delete'), array('class' => 'badge bg-danger','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => 'Delete User', 'data-message' => 'Are you sure you want to delete this user ?')) !!}
                                                 {!! Form::close() !!}
                                             </td>
                                             <td>
-                                                <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('users/' . $user->id) }}" data-toggle="tooltip" title="Show">
+                                                <a href="{{ URL::to('users/' . $user->id) }}" class="badge bg-success">{!! trans('usersmanagement.buttons.show') !!}</a>
+                                                {{-- <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('users/' . $user->id) }}" data-toggle="tooltip" title="Show">
                                                     {!! trans('usersmanagement.buttons.show') !!}
-                                                </a>
+                                                </a> --}}
                                             </td>
                                             <td>
-                                                <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('users/' . $user->id . '/edit') }}" data-toggle="tooltip" title="Edit">
+                                                <a href="{{ URL::to('users/' . $user->id . '/edit') }}" class="badge bg-info">{!! trans('usersmanagement.buttons.edit') !!}</a>
+                                                {{-- <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('users/' . $user->id . '/edit') }}" data-toggle="tooltip" title="Edit">
                                                     {!! trans('usersmanagement.buttons.edit') !!}
-                                                </a>
+                                                </a> --}}
                                             </td>
                                         </tr>
                                     @endforeach

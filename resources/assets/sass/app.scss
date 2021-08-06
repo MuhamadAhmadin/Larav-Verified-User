@@ -14,7 +14,11 @@
 
 // Font Awesome
 @import '~font-awesome/scss/font-awesome';
-
+// Font-Awesome
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
 // Dropzone
 @import "~dropzone/dist/basic";
 @import "~dropzone/dist/dropzone";

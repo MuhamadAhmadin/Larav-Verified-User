@@ -12,11 +12,12 @@
 
 @section('content')
 
-  <div class="container-fluid logs-container">
+  <div class="container">
     <div class="row">
 
       <div class="col-sm-3 col-md-2 sidebar">
         <h4><span class="fa fa-fw fa-file-code-o" aria-hidden="true"></span> Log Files</h4>
+      </div>
         <div class="list-group">
           @foreach($files as $file)
             <a href="?l={{ \Illuminate\Support\Facades\Crypt::encrypt($file) }}" class="list-group-item @if ($current_file == $file) llv-active @endif">

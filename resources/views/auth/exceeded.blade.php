@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.applogin')
 
 @section('template_title')
 	{!! trans('titles.exceeded') !!}

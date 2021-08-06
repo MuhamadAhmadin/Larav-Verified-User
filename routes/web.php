@@ -31,6 +31,9 @@ Route::group(['middleware' => ['web', 'activity', 'checkblocked']], function () 
     Route::get('/activate', ['as' => 'activate', 'uses' => 'App\Http\Controllers\Auth\ActivateController@initial']);
 
     Route::get('/activate/{token}', ['as' => 'authenticated.activate', 'uses' => 'App\Http\Controllers\Auth\ActivateController@activate']);
+    Route::post('/2fa', function () {
+        return redirect(URL()->previous());
+    })->name('2fa')->middleware('2fa');
     Route::get('/activation', ['as' => 'authenticated.activation-resend', 'uses' => 'App\Http\Controllers\Auth\ActivateController@resend']);
     Route::get('/exceeded', ['as' => 'exceeded', 'uses' => 'App\Http\Controllers\Auth\ActivateController@exceeded']);
 
@@ -55,7 +58,7 @@ Route::group(['middleware' => ['auth', 'activated', 'activity', 'twostep', 'chec
 
     //  Homepage Route - Redirect based on user role is in controller.
     Route::get('/home', ['as' => 'public.home',   'uses' => 'App\Http\Controllers\UserController@index']);
-
+    
     // Show users profile - viewable by other users.
     Route::get('profile/{username}', [
         'as'   => '{username}',
@@ -119,6 +122,10 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 't
         ],
     ]);
     Route::post('search-users', 'App\Http\Controllers\UsersManagementController@search')->name('search-users');
+
+    Route::get('/admin', function () {
+        return view('admin.index');
+    })->middleware(['auth', '2fa']);
 
     Route::resource('themes', \App\Http\Controllers\ThemesManagementController::class, [
         'names' => [

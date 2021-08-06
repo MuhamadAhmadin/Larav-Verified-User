@@ -9,114 +9,88 @@
 
 @endphp
 
-<div class="card">
-    <div class="card-header @role('admin', true) bg-secondary text-white @endrole">
-
-        Welcome {{ Auth::user()->name }}
 
         @role('admin', true)
-            <span class="pull-right badge badge-primary" style="margin-top:4px">
-                Admin Access
-            </span>
-        @else
-            <span class="pull-right badge badge-warning" style="margin-top:4px">
-                User Access
-            </span>
+        <div class="page-heading">
+            <h3>Dashboard Admin</h3>
+        </div>
+
+        <div class="page-content">
+            <section class="row">
+                <div class="col-12 col-lg-9">
+                    <div class="row">
+                        <div class="col-6 col-lg-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body px-3 py-4-5">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="stats-icon purple">
+                                                <i class="fa fa-user-o"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h6 class="text-muted font-semibold">Total User</h6>
+                                            <h6 class="font-extrabold mb-0">112.000</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body px-3 py-4-5">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="stats-icon green">
+                                                <i class="fa fa-vcard-o"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h6 class="text-muted font-semibold">Verified User</h6>
+                                            <h6 class="font-extrabold mb-0">183.000</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-4 col-md-8">
+                            <div class="card">
+                                <div class="card-body px-3 py-4-5">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="stats-icon red">
+                                                <i class="fa fa-user-times"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h6 class="text-muted font-semibold">User Non Verified</h6>
+                                            <h6 class="font-extrabold mb-0">80.000</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    
+                </div>
+                <div class="col-12 col-lg-3">
+                    <div class="card">
+                        <div class="card-body py-4 px-5">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar avatar-xl">
+                                    <img src="assets/images/faces/1.jpg" alt="Face 1">
+                                </div>
+                                <div class="ms-3 name">
+                                    <h5 class="font-bold">{{ Auth::user()->name }}</h5>
+                                    <h6 class="text-muted mb-0">{{ Auth::user()->email }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+            </section>
+        </div>
         @endrole
 
-    </div>
-    <div class="card-body">
-        <h2 class="lead">
-            {{ trans('auth.loggedIn') }}
-        </h2>
-        <p>
-            <em>Thank you</em> for checking this project out. <strong>Please remember to star it!</strong>
-        </p>
-        <p>
-            <iframe src="https://ghbtns.com/github-btn.html?user=jeremykenedy&repo=laravel-auth&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px" style="margin: 0px 0 -3px .5em;"></iframe>
-        </p>
-        <p>
-            This page route is protected by <code>activated</code> middleware. Only accounts with activated emails are able pass this middleware.
-        </p>
-        <p>
-            <small>
-                Users registered via Social providers are by default activated.
-            </small>
-        </p>
-
-        <hr>
-
-        <p>
-            You have
-                <strong>
-                    @role('admin')
-                       Admin
-                    @endrole
-                    @role('user')
-                       User
-                    @endrole
-                </strong>
-            Access
-        </p>
-
-        <hr>
-
-        <p>
-            You have access to {{ $levelAmount }}:
-            @level(5)
-                <span class="badge badge-primary margin-half">5</span>
-            @endlevel
-
-            @level(4)
-                <span class="badge badge-info margin-half">4</span>
-            @endlevel
-
-            @level(3)
-                <span class="badge badge-success margin-half">3</span>
-            @endlevel
-
-            @level(2)
-                <span class="badge badge-warning margin-half">2</span>
-            @endlevel
-
-            @level(1)
-                <span class="badge badge-default margin-half">1</span>
-            @endlevel
-        </p>
-
-        @role('admin')
-
-            <hr>
-
-            <p>
-                You have permissions:
-                @permission('view.users')
-                    <span class="badge badge-primary margin-half margin-left-0">
-                        {{ trans('permsandroles.permissionView') }}
-                    </span>
-                @endpermission
-
-                @permission('create.users')
-                    <span class="badge badge-info margin-half margin-left-0">
-                        {{ trans('permsandroles.permissionCreate') }}
-                    </span>
-                @endpermission
-
-                @permission('edit.users')
-                    <span class="badge badge-warning margin-half margin-left-0">
-                        {{ trans('permsandroles.permissionEdit') }}
-                    </span>
-                @endpermission
-
-                @permission('delete.users')
-                    <span class="badge badge-danger margin-half margin-left-0">
-                        {{ trans('permsandroles.permissionDelete') }}
-                    </span>
-                @endpermission
-
-            </p>
-
-        @endrole
-
-    </div>
-</div>

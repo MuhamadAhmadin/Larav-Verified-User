@@ -1,6 +1,6 @@
 @if (session('message'))
-  <div class="alert alert-{{ Session::get('status') }} status-box alert-dismissable fade show" role="alert">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;<span class="sr-only">Close</span></a>
+    <div class="alert alert-{{ Session::get('status') }} alert-dismissible fade show" role="alert">
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     {{ session('message') }}
   </div>
 @endif

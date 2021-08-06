@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.applogin')
 
 @section('template_title')
 	{{ trans('titles.activation') }}
@@ -12,7 +12,7 @@
 					<div class="card-header">{{ trans('titles.activation') }}</div>
 					<div class="card-body">
 						<p>{{ trans('auth.regThanks') }}</p>
-						<p>{{ trans('auth.anEmailWasSent',['email' => $email, 'date' => $date ] ) }}</p>
+						<p>{{ trans('auth.anEmailWasSent',['email' => $email,  'date' => $date] ) }}</p>
 						<p>{{ trans('auth.clickInEmail') }}</p>
 						<p><a href='/activation' class="btn btn-primary">{{ trans('auth.clickHereResend') }}</a></p>
 					</div>

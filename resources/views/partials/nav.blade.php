@@ -15,14 +15,30 @@
 <div class="sidebar-menu">
     <ul class="menu">
         <li class="sidebar-title">Menu</li>
-        
+
         <li class="sidebar-item  ">
             <a href="/home" class='sidebar-link'>
                 <i class="bi bi-grid-fill"></i>
                 <span>Dashboard</span>
             </a>
         </li>
-        
+
+        @if (!Auth::user()->isAdmin())
+            <li class="sidebar-item">
+                <a href="{{ route('public.verification') }}" class='sidebar-link'>
+                    <i class="bi bi-collection-fill"></i>
+                    <span>Verifikasi Akun</span>
+                </a>
+            </li>
+        @else
+            <li class="sidebar-item">
+                <a href="{{ route('public.verification') }}" class='sidebar-link'>
+                    <i class="bi bi-collection-fill"></i>
+                    <span>Permohonan Verifikasi</span>
+                </a>
+            </li>
+        @endif
+
         <li class="sidebar-item">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-wallet"></i>
@@ -44,14 +60,14 @@
                 </li>
             </ul>
         </li>
-        
+
         <li class="sidebar-item">
             <a href="{{ url('/pembelian') }}" class='sidebar-link'>
                 <i class="bi bi-collection-fill"></i>
                 <span>Pembelian Saya</span>
             </a>
         </li>
-        
+
         <li class="sidebar-item">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-grid-1x2-fill"></i>
@@ -143,7 +159,7 @@
                         {!! trans('titles.laravelBlocker') !!}
                     </a>
                 </li>
-        @endrole        
+        @endrole
     </ul>
 </div>
 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
@@ -218,7 +234,7 @@
                                 <li><a class="dropdown-item"  href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                   document.getElementById('logout-form').submit();">
-                                    
+
                                     <i class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf

@@ -119,6 +119,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Get the user verification status
+     */
+    public function verification()
+    {
+        return $this->hasOne(\App\Models\UserVerificator::class);
+    }
+
+    /**
      * The profiles that belong to the user.
      */
     public function profiles()

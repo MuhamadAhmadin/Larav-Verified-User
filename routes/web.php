@@ -58,7 +58,10 @@ Route::group(['middleware' => ['auth', 'activated', 'activity', 'twostep', 'chec
 
     //  Homepage Route - Redirect based on user role is in controller.
     Route::get('/home', ['as' => 'public.home',   'uses' => 'App\Http\Controllers\UserController@index']);
-    
+    Route::get('/verification', ['as' => 'public.verification',   'uses' => 'App\Http\Controllers\UserVerificatorController@index']);
+    Route::put('/verification/{user_id}', ['as' => 'public.verification.store',   'uses' => 'App\Http\Controllers\UserVerificatorController@store']);
+    Route::put('/verification/verify/{user_id}', ['as' => 'public.verification.verify',   'uses' => 'App\Http\Controllers\UserVerificatorController@verify']);
+
     // Show users profile - viewable by other users.
     Route::get('profile/{username}', [
         'as'   => '{username}',

@@ -85,4 +85,14 @@ return [
     'errorRestoreUserTime' => 'Sorry, account cannot be restored',
     'successUserRestore'   => 'Welcome back :username! Account Successfully Restored',
 
+    // Verification Page
+    'label-address' => 'Alamat anda:',
+    'ph-address'    => 'Masukkan alamat',
+
+    'label-phone' => 'Nomor HP anda:',
+    'ph-phone'    => 'Masukkan Nomor HP',
+
+    'label-attachment' => 'Upload Dokumen:',
+    'ph-attachment'    => 'Upload Dokumen',
+
 ];

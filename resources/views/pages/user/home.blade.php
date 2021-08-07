@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    
+
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-12 offset-lg-1">
@@ -25,26 +25,26 @@
         <p class="h4" style="">Quick actions</p>
             <div class="card-deck">
                 <div class="card">
-                
+
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                
+
                 </div>
                 </div>
                 <div class="card">
-                
+
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    
+
                 </div>
                 </div>
                 <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                
+
                 </div>
                 </div>
             </div>
@@ -57,18 +57,18 @@
                     <p class="card-text text-center text-black" >Enable 2FA</p>
                     <p class="text-sm text-center text-black" >Enable 2FA on your account</p></a>
                 </div>
-                
+
                 <div class="card"><a href="{{ url('profile/'.Auth::user()->name . '/edit') }}" style="text-decoration:none;">
                     <div class="card-header bg-light-danger text-white text-center">
                         <img src="{{ asset('media/edit.svg') }}" text-white  width="50" height="50" class="card-img-top"></div>
                     <p class="card-text text-center text-black" >Edit Profile Details</p>
                     <p class="text-sm text-center text-black" >Edit your profile details</p></a>
                 </div>
-                
+
             </div>
             <br>
-            
-            
+
+
 
             </div>
         </div>

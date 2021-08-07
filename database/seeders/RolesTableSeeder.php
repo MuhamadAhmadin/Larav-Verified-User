@@ -36,6 +36,12 @@ class RolesTableSeeder extends Seeder
                 'description' => 'Unverified Role',
                 'level'       => 0,
             ],
+            [
+                'name'        => 'Verified',
+                'slug'        => 'verified',
+                'description' => 'Verified Role',
+                'level'       => 2,
+            ],
         ];
 
         /*

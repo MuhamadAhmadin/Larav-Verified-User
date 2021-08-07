@@ -56,6 +56,8 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    'mix_url' => env('MIX_ASSET_URL', 'localhost'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -237,6 +239,7 @@ return [
         'Gravatar'      => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Image'         => Intervention\Image\Facades\Image::class,
         'Uuid'          => jeremykenedy\Uuid\Uuid::class,
+        'Helper' => App\Helpers\Helper::class,
     ],
 
 ];
